@@ -13,7 +13,7 @@ img = get_base64("logo.png")
 
 st.markdown(f"""
     <div style="display:flex; justify-content:center;">
-        <img src="data:image/png;base64,{img}" height="200px" alt="Logo">
+        <img src="data:image/png;base64,{img}" height="250px" alt="Logo">
     </div>
 """, unsafe_allow_html=True)
 st.markdown("""
