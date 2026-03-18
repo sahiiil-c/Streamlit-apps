@@ -27,7 +27,4 @@ if serv != "Select Service":
         st.dataframe(filtered)
     else:
         st.warning("No data found")
-import os
 
-if serv == "Select Service":
-    st.write(os.listdir())
