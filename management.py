@@ -13,13 +13,13 @@ st.title("Welcome to Ashu's Saloon! 💇‍♂️💇‍♀️")
 def load_data(sheet):
     return pd.read_excel("Price_list.xlsx",sheet_name=sheet.lower(),)
 
-serv_select = ["Select Service","Threading","Waxing","Bleach","Dtan",
+serv_select = ["Select","Threading","Waxing","Bleach","Dtan",
                "Clean up","Facials","Chemical treatment","Hair spa",
                "Haircut","Hairset"]
 
-serv = st.selectbox("💄 Choose Service", serv_select)
+serv = st.radio("💄 Choose Service", serv_select,horizontal=True)
 
-if serv != "Select Service":
+if serv != "Select":
     df = load_data(serv)
     filtered = df
 
