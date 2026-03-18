@@ -1,5 +1,8 @@
 [theme]
-primaryColor="#e91e63"                # pink
-backgroundColor="#fff5f7"             # soft pink
-secondaryBackgroundColor="#ffe4ec"    # light pink
-textColor="#000000"
+primaryColor="#ff4b4b"
+backgroundColor="#000200"
+secondaryBackgroundColor="#2a5298"
+textColor="#ffffff"
+
+[server]
+headless = true
