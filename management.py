@@ -94,7 +94,11 @@ db = start_app(st.secrets["firebase"])
 
 # if db:
 #     st.success("db connected succesfully🚀")
-    
+
+st.markdown(
+    "<h6 style='color: #D4AF37;'>Mobile no. - 8652200634</h6>",
+    unsafe_allow_html=True
+)
 
 hair,face,body,feet = st.tabs(["💇‍♀️ Hair Lounge","🌸 Skin Studio","🌿 Body Rituals","👣 Foot Therapy Spa"])
 
