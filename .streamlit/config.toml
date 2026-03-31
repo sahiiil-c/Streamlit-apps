@@ -3,6 +3,7 @@ primaryColor="#ff4b4b"
 backgroundColor="#000200"
 secondaryBackgroundColor="#2a5298"
 textColor="#ffffff"
+title="#f7adc9"
 
 [server]
 headless = true
