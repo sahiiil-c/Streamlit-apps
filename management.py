@@ -204,7 +204,7 @@ with body:
     body_db = get_doc_data(db,"service","body")
     
     
-    body_col1,body_col2,body_col3,body_col4 = st.tabs(["🍯 Body Waxing","⚪ Skin Lightening","✨ Body Polishing","🌞 Tan Removal Ritual"])
+    body_col1,body_col2,body_col3,body_col4 = st.tabs(["🍯 Body Waxing","⚪ Bleach","✨ Body Polishing","🌞 Tan Removal Ritual"])
     
     with body_col1:
         st.table(represent_df(body_db['waxing'],order=['service','price'],set_index='service'),border=False)
