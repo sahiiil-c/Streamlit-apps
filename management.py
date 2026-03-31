@@ -1,16 +1,13 @@
 import streamlit as st
-st.set_page_config(page_title="Ashu's saloon", page_icon="logo.png", layout="centered")
-
 import pandas as pd
-
 import base64
 
-
+st.set_page_config(page_title="Ashu's saloon", page_icon="new logo.png", layout="centered")
 def get_base64(img_path):
     with open(img_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-img = get_base64("logo.png")
+img = get_base64("new logo.png")
 # st.title("Ashu's Makeover",text_alignment="center")
 #====================================================================================
 # Display the logo at the top of the page, centered, with a height of 200px
