@@ -1,37 +1,19 @@
+import time
 import streamlit as st
+st.set_page_config(page_title="Ashu's saloon", page_icon="new logo.png", layout="centered")
+
 import pandas as pd
+
 import base64
 
-st.set_page_config(page_title="Ashu's saloon", page_icon="new logo.png", layout="centered")
+
 def get_base64(img_path):
     with open(img_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
 img = get_base64("new logo.png")
-# st.title("Ashu's Makeover",text_alignment="center")
-#====================================================================================
-# Display the logo at the top of the page, centered, with a height of 200px
-#====================================================================================#
-st.markdown(f"""
-    <div style="display:flex; justify-content:center; ">
-        <img src="data:image/png;base64,{img}" height="150px" alt="Logo">
-    </div>
-    
-""", unsafe_allow_html=True)
 
-#====================================================================================
-# Set the background of the entire app to a gradient from #1e3c72 to #2a5298 to skyblue, with a diagonal direction (315 degrees)
-#====================================================================================
-st.markdown("""
-    <style>
-        .stApp {
-            background: linear-gradient(315deg, #1e3c72, #2a5298,skyblue);
-            background-attachment: flex;
-            background-size: cover;
-            
-        }
-    </style>
-""", unsafe_allow_html=True)
+
 
 
 # hide the streamlit menu and footer
@@ -45,13 +27,15 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
+
 #===========================
 # Start app function
 #===========================
-
+placeholder = st.empty()
 def start_app(path):
     import firebase_admin
     from firebase_admin import credentials, firestore
+    
     
     path = dict(path)
     
@@ -60,9 +44,13 @@ def start_app(path):
     
     # Initialize only once
     if not firebase_admin._apps:
+        placeholder.info("Connecting to database...")
         cred = credentials.Certificate(path)
         firebase_admin.initialize_app(cred)
-        
+        time.sleep(0.5)
+        placeholder.success("Connected to database successfully! 🚀")
+        time.sleep(1)
+        placeholder.empty()
     return firestore.client()
 
 # function to get document list for specific data 
@@ -94,7 +82,31 @@ def represent_df(db,order:list,set_index:str):
     else:
         st.error("incorrect order")
 
+#====================================================================================
+# Set the background of the entire app to a gradient from #1e3c72 to #2a5298 to skyblue, with a diagonal direction (315 degrees)
+#====================================================================================
+st.markdown("""
+    <style>
+        .stApp {
+            background: linear-gradient(315deg, #1e3c72, #2a5298,skyblue);
+            background-attachment: flex;
+            background-size: cover;
+            
+        }
+    </style>
+""", unsafe_allow_html=True)
 
+
+# st.title("Ashu's Makeover",text_alignment="center")
+#====================================================================================
+# Display the logo at the top of the page, centered, with a height of 200px
+#====================================================================================#
+st.markdown(f"""
+    <div style="display:flex; justify-content:center; ">
+        <img src="data:image/png;base64,{img}" height="150px" alt="Logo">
+    </div>
+    
+""", unsafe_allow_html=True)
 
 
 # Correct way to access secrets
@@ -102,12 +114,11 @@ db = start_app(st.secrets["firebase"])
 
 # if db:
 #     st.success("db connected succesfully🚀")
-
+    
 st.markdown(
     "<h6 style='color: #D4AF37;'>Mobile no. - 8652200634</h6>",
     unsafe_allow_html=True
 )
-
 hair,face,body,feet = st.tabs(["💇‍♀️ Hair Lounge","🌸 Skin Studio","🌿 Body Rituals","👣 Foot Therapy Spa"])
 
 
@@ -204,7 +215,7 @@ with body:
     body_db = get_doc_data(db,"service","body")
     
     
-    body_col1,body_col2,body_col3,body_col4 = st.tabs(["🍯 Body Waxing","⚪ Bleach","✨ Body Polishing","🌞 Tan Removal Ritual"])
+    body_col1,body_col2,body_col3,body_col4 = st.tabs(["🍯 Body Waxing","⚪ Skin Lightening","✨ Body Polishing","🌞 Tan Removal Ritual"])
     
     with body_col1:
         st.table(represent_df(body_db['waxing'],order=['service','price'],set_index='service'),border=False)
@@ -213,7 +224,7 @@ with body:
         st.table(represent_df(body_db['bleach'],order=['service','price'],set_index='service'),border=False)
     
     with body_col3:
-        st.table(represent_df(body_db['polishing'],order=['service','price'],set_index='service'),border=False)
+        st.table(represent_df(body_db['polishing'],order=['service','price',"include"],set_index='service'),border=False)
     
     with body_col4:
         st.table(represent_df(body_db['dtan'],order=['service','price'],set_index='service'),border=False)
