@@ -88,7 +88,7 @@ def represent_df(db,order:list,set_index:str):
 st.markdown("""
     <style>
         .stApp {
-            background: linear-gradient(315deg, #FFFFFF,skyblue);
+            background: linear-gradient(315deg, skyblue, #FFFFFF);
             background-attachment: flex;
             background-size: cover;
             
