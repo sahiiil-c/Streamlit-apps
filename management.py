@@ -22,6 +22,13 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
+            
+            # below are the new added line 
+            .stDeployButton {display:none;}
+            [data-testid="stFooter"] {display: none;}
+            [data-testid="stToolbar"] {display: none;}
+            # till above
+            
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
