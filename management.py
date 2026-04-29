@@ -116,7 +116,7 @@ db = start_app(st.secrets["firebase"])
 #     st.success("db connected succesfully🚀")
     
 st.markdown(
-    "<h6 style='color: #D4AF37;'>Chat on <a href='https://wa.me/8652200634'>Whatsapp</a></h6>",
+    "<h6 style='color: #D4AF37;'>Chat on <a href='https://wa.me/+918652200634'>Whatsapp</a></h6>",
     unsafe_allow_html=True
 )
 hair,face,body,feet = st.tabs(["💇‍♀️ Hair Lounge","🌸 Skin Studio","🌿 Body Rituals","👣 Foot Therapy Spa"])
