@@ -1,6 +1,6 @@
 import time
 import streamlit as st
-st.set_page_config(page_title="Ashu's saloon", page_icon="new logo.png", layout="centered")
+st.set_page_config(page_title="Ashu's saloon", page_icon="new logo.png", layout="wide")
 
 import pandas as pd
 
