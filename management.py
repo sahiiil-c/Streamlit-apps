@@ -22,22 +22,6 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
-            
-            # below are the new added line 
-            /* Hide footer */
-            footer {display: none !important;}
-
-
-            /* Hide "Hosted with Streamlit" bar */
-            [data-testid="stStatusWidget"] {display: none !important;}
-            [data-testid="stDecoration"] {display: none !important;}
-            [data-testid="stToolbar"] {display: none !important;}
-
-            /* Extra fallback */
-            .css-18e3th9 {display: none !important;}
-            .css-1rs6os {display: none !important;}
-            # till above
-            
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
