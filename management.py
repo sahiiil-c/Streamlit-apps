@@ -24,10 +24,18 @@ hide_st_style = """
             header {visibility: hidden;}
             
             # below are the new added line 
-            .stDeployButton {display:none;}
-            [data-testid="stFooter"] {display: none;}
-            [data-testid="stToolbar"] {display: none;}
-            .block-container {padding-top: 1rem;}
+            /* Hide footer */
+            footer {display: none !important;}
+
+
+            /* Hide "Hosted with Streamlit" bar */
+            [data-testid="stStatusWidget"] {display: none !important;}
+            [data-testid="stDecoration"] {display: none !important;}
+            [data-testid="stToolbar"] {display: none !important;}
+
+            /* Extra fallback */
+            .css-18e3th9 {display: none !important;}
+            .css-1rs6os {display: none !important;}
             # till above
             
             </style>
